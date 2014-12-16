@@ -15,11 +15,11 @@ namespace ConsoleApplication2
             ProcessQuestion processQ = new ProcessQuestion();
             string[] ques = processQ.Question(htable, first, ref symbols, terminals, ref state, ref sym, ref ans, ref incorrect, ref correct, ref wrong, ref right);
 
-            if (ques[0]==null && ques[1]==null)
+            /*if (ques[0]==null && ques[1]==null)
             {
                 Console.WriteLine("Success");
                 return;
-            }
+            }*/
 
             string[] question = Regex.Split(ques[0], "  ");            
 
