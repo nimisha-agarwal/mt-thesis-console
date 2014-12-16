@@ -129,7 +129,7 @@ namespace ConsoleApplication2
 
         public string[] Question(Hashtable htable, Hashtable first, ref Stack<string> symbols, HashSet<string> terminals, ref int state, ref string sym,ref string ans,ref Stack<string> incorrect,ref Stack<string> correct,ref string wrong,ref string right)
         {
-            if(symbols.Count!=0)
+            //if(symbols.Count!=0)
             {
                 if(state==1)
                 {
@@ -161,7 +161,8 @@ namespace ConsoleApplication2
 
                         if (incorrect.Count == 0 && correct.Count == 0)
                         {
-                            sym = symbols.Pop();
+                            if(symbols.Count!=0)
+                                sym = symbols.Pop();
                         }
                         else
                         {
@@ -170,7 +171,7 @@ namespace ConsoleApplication2
                         }
                     }
                 }
-
+                
                 Ques_Gen(htable, ref symbols, terminals, ref state, sym, ref ans, ref correct, ref incorrect,ref wrong,ref right);
             }
 

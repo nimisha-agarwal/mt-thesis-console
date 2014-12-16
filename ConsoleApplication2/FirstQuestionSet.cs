@@ -10,12 +10,13 @@ namespace ConsoleApplication2
 {
     class FirstQuestionSet
     {
+        string previous_question = null;
         public void QuestionSetGeneration(Hashtable htable, Hashtable first, Stack<string> symbols, HashSet<string> terminals, int state, string sym, string ans, Stack<string> incorrect, Stack<string> correct, string wrong, string right)
         {
             ProcessQuestion processQ = new ProcessQuestion();
             string[] ques = processQ.Question(htable, first, ref symbols, terminals, ref state, ref sym, ref ans, ref incorrect, ref correct, ref wrong, ref right);
 
-            if (ques[0]==null && ques[1]==null)
+            if (ques[0]==previous_question)
             {
                 Console.WriteLine("Success");
                 return;
@@ -44,6 +45,8 @@ namespace ConsoleApplication2
 
             Console.WriteLine();
             Console.WriteLine();
+
+            previous_question = ques[0];
 
             QuestionSetGeneration(htable, first, symbols, terminals, state, sym, ans, incorrect, correct, wrong, right);
         }
