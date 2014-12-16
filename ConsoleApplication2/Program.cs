@@ -13,6 +13,7 @@ namespace ConsoleApplication2
         static void Main(string[] args)
         {
             Console.WriteLine(args[0]);
+            Console.WriteLine();
             string[] grammar = File.ReadAllLines(@"C:\Users\NimishaAg\Documents\Visual Studio 2013\Projects\ConsoleApplication2\ConsoleApplication2\Grammars\" + args[0] + ".txt");
 
             Hashtable htable = new Hashtable();

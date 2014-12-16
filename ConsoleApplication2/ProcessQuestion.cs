@@ -103,7 +103,7 @@ namespace ConsoleApplication2
                         {
                             right = correct.Pop();
                             state = 3;
-                            ques = Question3(sym, right);
+                            //ques = Question3(sym, right);
                         }
                     }
                     else
@@ -133,7 +133,14 @@ namespace ConsoleApplication2
             {
                 if(state==1)
                 {
-                    HashSet<string> symfirst = (HashSet<string>)first[sym];
+                    HashSet<string> tempsymfirst = (HashSet<string>)first[sym];
+                    HashSet<string> symfirst = new HashSet<string>();
+
+                    foreach(string sfirst in tempsymfirst)
+                    {
+                        symfirst.Add(sfirst);
+                    }
+
                     if (ans != null)
                     {
                         string[] ansarray = Regex.Split(ans.Trim(), " ");
