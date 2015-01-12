@@ -21,12 +21,12 @@ namespace ConsoleApplication2
                 foreach (String[] element in part)
                 {
                     for (int i = 0; i < element.Length; i++)
-                    {
-                        symbolset.Add(element[i]);
+                    {                        
                         if (!char.IsUpper(element[i][0]))
-                        {
                             terminals.Add(element[i]);
-                        }
+                        
+                        else
+                            symbolset.Add(element[i]);
                     }
                 }
             }

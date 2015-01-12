@@ -16,13 +16,13 @@ namespace ConsoleApplication2
             ProcessQuestion processQ = new ProcessQuestion();
             string[] ques = processQ.Question(htable, first, ref symbols, terminals, ref state, ref sym, ref ans, ref incorrect, ref correct, ref wrong, ref right);
 
-            if (ques[0]==previous_question)
+            if (state == 1 && ques[0] == previous_question)
             {
                 Console.WriteLine("Success");
                 return;
             }
 
-            string[] question = Regex.Split(ques[0], "  ");            
+            string[] question = Regex.Split(ques[0], "  ");
 
             for (int i = 0; i < question.Length; i++)
             {

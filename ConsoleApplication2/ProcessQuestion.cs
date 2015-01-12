@@ -38,17 +38,17 @@ namespace ConsoleApplication2
             return ques3;
         }
 
-        public void Ques_Gen(Hashtable htable, ref Stack<string> symbols,HashSet<string> terminals,ref int state, string sym,ref string ans,ref Stack<string> correct,ref Stack<string> incorrect,ref string wrong,ref string right)
+        public void Ques_Gen(Hashtable htable, ref Stack<string> symbols, HashSet<string> terminals, ref int state, string sym, ref string ans, ref Stack<string> correct, ref Stack<string> incorrect, ref string wrong, ref string right)
         {
             if (state == 1)
                 ques = Question1(sym, terminals);
             else
             {
-                if(state==2)
+                if (state == 2)
                 {
                     if (ans == null || ans == "4")
                     {
-                        if(incorrect.Count!=0)
+                        if (incorrect.Count != 0)
                         {
                             wrong = incorrect.Pop();
                             ques = Question2(sym, wrong);
@@ -63,12 +63,12 @@ namespace ConsoleApplication2
                     {
                         ques = Question2(sym, wrong);
                     }
-                }                
+                }
 
-                if(state==4)
+                if (state == 4)
                 {
-                    string ruleno=null;
-                    if(ans!=null)
+                    string ruleno = null;
+                    if (ans != null)
                     {
                         if (!char.IsUpper(sym[0]))
                             ruleno = "1";
@@ -76,9 +76,9 @@ namespace ConsoleApplication2
                         {
                             int flag = 0;
                             string[][] part = (string[][])htable[sym];
-                            for(int i=0;i<part.Length;i++)
+                            for (int i = 0; i < part.Length; i++)
                             {
-                                if(right==part[i][0])
+                                if (right == part[i][0])
                                 {
                                     flag = 1;
                                     break;
@@ -91,9 +91,9 @@ namespace ConsoleApplication2
                         }
                     }
 
-                    if(ans==null || ans ==ruleno)
+                    if (ans == null || ans == ruleno)
                     {
-                        if(correct.Count==0)
+                        if (correct.Count == 0)
                         {
                             state = 1;
                             ans = null;
@@ -111,10 +111,10 @@ namespace ConsoleApplication2
                         ques = Question2(sym, right);
                     }
                 }
-                
-                if(state==3)
+
+                if (state == 3)
                 {
-                    if(ans=="Y" || ans=="y")
+                    if (ans == "Y" || ans == "y")
                     {
                         state = 4;
                         ques = Question2(sym, right);
@@ -127,16 +127,16 @@ namespace ConsoleApplication2
             }
         }
 
-        public string[] Question(Hashtable htable, Hashtable first, ref Stack<string> symbols, HashSet<string> terminals, ref int state, ref string sym,ref string ans,ref Stack<string> incorrect,ref Stack<string> correct,ref string wrong,ref string right)
+        public string[] Question(Hashtable htable, Hashtable first, ref Stack<string> symbols, HashSet<string> terminals, ref int state, ref string sym, ref string ans, ref Stack<string> incorrect, ref Stack<string> correct, ref string wrong, ref string right)
         {
             //if(symbols.Count!=0)
             {
-                if(state==1)
+                if (state == 1)
                 {
                     HashSet<string> tempsymfirst = (HashSet<string>)first[sym];
                     HashSet<string> symfirst = new HashSet<string>();
 
-                    foreach(string sfirst in tempsymfirst)
+                    foreach (string sfirst in tempsymfirst)
                     {
                         symfirst.Add(sfirst);
                     }
@@ -161,7 +161,7 @@ namespace ConsoleApplication2
 
                         if (incorrect.Count == 0 && correct.Count == 0)
                         {
-                            if(symbols.Count!=0)
+                            if (symbols.Count != 0)
                                 sym = symbols.Pop();
                         }
                         else
@@ -171,8 +171,8 @@ namespace ConsoleApplication2
                         }
                     }
                 }
-                
-                Ques_Gen(htable, ref symbols, terminals, ref state, sym, ref ans, ref correct, ref incorrect,ref wrong,ref right);
+
+                Ques_Gen(htable, ref symbols, terminals, ref state, sym, ref ans, ref correct, ref incorrect, ref wrong, ref right);
             }
 
             return ques;
