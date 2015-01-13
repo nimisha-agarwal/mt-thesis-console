@@ -42,7 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="First.cs" />
-    <Compile Include="FirstQuestionSet.cs" />
+    <Compile Include="QuestionSet.cs" />
+    <Compile Include="Follow.cs" />
     <Compile Include="GrammarPreprocessing.cs" />
     <Compile Include="ProcessQuestion.cs" />
     <Compile Include="Program.cs" />

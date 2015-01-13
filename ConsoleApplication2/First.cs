@@ -63,12 +63,12 @@ namespace ConsoleApplication2
                 first.Add(entry.Key, Initfirst);
             }
 
-            /*foreach(String term in terminals)
+            foreach(String term in terminals)
             {
                 HashSet<string> Initfirst = new HashSet<string>();
                 Initfirst.Add(term);
                 first.Add(term, Initfirst);
-            }*/
+            }
             
             return first;     
         }
