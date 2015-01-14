@@ -49,7 +49,7 @@ namespace ConsoleApplication2
 
             Console.WriteLine("Questions can be generated for : ");
             Console.WriteLine("1. FIRST Set");
-            Console.WriteLine("2. Follow Set");
+            Console.WriteLine("2. FOLLOW Set");
             Console.WriteLine();
             Console.WriteLine("Enter your choice");
             int ch = int.Parse(Console.ReadLine());
@@ -58,12 +58,12 @@ namespace ConsoleApplication2
 
             if (ch == 1)
             {
-                QS.QuestionSetGeneration(htable, first, follow, symbols, terminals, state, sym, ans, incorrect, correct, wrong, right, ch,startsym);
+                QS.QuestionSetGeneration(htable, first, follow, symbols, terminals, state, sym, ans, incorrect, correct, wrong, right, ch, startsym);
             }
             else if (ch == 2)
             {
                 terminals.Add("$");
-                QS.QuestionSetGeneration(htable,first, follow, symbols, terminals, state, sym, ans, incorrect, correct, wrong, right, ch,startsym);
+                QS.QuestionSetGeneration(htable, first, follow, symbols, terminals, state, sym, ans, incorrect, correct, wrong, right, ch, startsym);
             }
         }
     }

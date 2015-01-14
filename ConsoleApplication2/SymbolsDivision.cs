@@ -12,7 +12,7 @@ namespace ConsoleApplication2
         //public HashSet<String> nonterminals = new HashSet<string>();
         //HashSet<String> grammarsymbols = new HashSet<string>();
 
-        public SymbolsDivision(Hashtable htable,ref HashSet<string> symbolset,ref HashSet<string> terminals)
+        public SymbolsDivision(Hashtable htable, ref HashSet<string> symbolset, ref HashSet<string> terminals)
         {
             foreach (DictionaryEntry entry in htable)
             {
@@ -21,16 +21,16 @@ namespace ConsoleApplication2
                 foreach (String[] element in part)
                 {
                     for (int i = 0; i < element.Length; i++)
-                    {                        
+                    {
                         if (!char.IsUpper(element[i][0]))
                             terminals.Add(element[i]);
-                        
+
                         else
                             symbolset.Add(element[i]);
                     }
                 }
             }
-            
+
         }
     }
 }
