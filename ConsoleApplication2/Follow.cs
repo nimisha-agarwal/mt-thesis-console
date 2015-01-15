@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Collections;
-using System.Text;
 
 namespace ConsoleApplication2
 {
@@ -153,6 +151,29 @@ namespace ConsoleApplication2
                 return;
             }
             R_FOLLOW(htable, first, ref follow, startsym);
+        }
+
+        /// <summary>
+        /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///                                                     PRINTING FOLLOW SET
+        /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
+        /// <param name="follow"></param>
+
+        public void PRINTFOLLOW(Hashtable follow)
+        {
+            foreach (DictionaryEntry e in follow)
+            {
+                Console.Write("FOLLOW[ " + e.Key + " ] = {");
+                HashSet<String> val = (HashSet<String>)e.Value;
+
+                foreach (String i in val)
+                {
+                    Console.Write(" " + i + ",");
+                }
+                Console.Write("\b");
+                Console.WriteLine(" }");
+            }
         }
     }
 }

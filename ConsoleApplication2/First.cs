@@ -50,10 +50,10 @@ namespace ConsoleApplication2
         /// </summary>
         /// <param name="grammar"></param>
 
-        public Hashtable FIRST(Hashtable htable,ref HashSet<string> symbolset, ref HashSet<string> terminals)
+        public Hashtable FIRST(Hashtable htable)
         {
             Hashtable first = new Hashtable();
-            SymbolsDivision sym = new SymbolsDivision(htable,ref symbolset,ref terminals);
+            //SymbolsDivision sym = new SymbolsDivision(htable,ref symbolset,ref terminals);
             
             foreach (DictionaryEntry entry in htable)
             {
@@ -61,16 +61,31 @@ namespace ConsoleApplication2
                 //Console.WriteLine(entry.Key);
                 Initfirst = R_FIRST((String)entry.Key, htable);
                 first.Add(entry.Key, Initfirst);
-            }
-
-            foreach(String term in terminals)
-            {
-                HashSet<string> Initfirst = new HashSet<string>();
-                Initfirst.Add(term);
-                first.Add(term, Initfirst);
-            }
+            }           
             
             return first;     
+        }
+
+        /// <summary>
+        /// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///                                                   PRINTING FIRST SET
+        /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
+
+        public void PRINTFIRST(Hashtable first)
+        {
+            foreach (DictionaryEntry e in first)
+            {
+                Console.Write("FIRST[ " + e.Key + " ] = {");
+                HashSet<String> val = (HashSet<String>)e.Value;
+
+                foreach (String i in val)
+                {
+                    Console.Write(" " + i + ",");
+                }
+                Console.Write("\b");
+                Console.WriteLine(" }");
+            }
         }
     }
 }

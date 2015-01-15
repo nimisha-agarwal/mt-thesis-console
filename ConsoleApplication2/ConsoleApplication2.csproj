@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="First.cs" />
+    <Compile Include="LeftFactoring.cs" />
     <Compile Include="QuestionSet.cs" />
     <Compile Include="Follow.cs" />
     <Compile Include="GrammarPreprocessing.cs" />
